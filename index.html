@@ -3,29 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>ToDo App</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="wrapper">
-    <div class="todo-window">
-        <div class="add-section">
-            <input type="text" id="task-text">
-            <button id="add-task">Add</button>
-        </div>
-        <span id="error"></span>
+        <div class="todo-window">
+            <div class="add-section">
+                <input type="text" id="task-text" class="input">
+                <button id="add-task" class="button">Add</button>
+            </div>
+            <span id="error"></span>
 
-        <div class="list-section">
-            <ul id="list">
-
-            </ul>
-        </div>
-        <div class="remove-buttons">
-            <button id="remove-all">Remove All</button>
-            <button id="remove-completed">Delete Completed</button>
+            <div class="list-section">
+                <ul id="list"></ul>
+            </div>
+            <div class="remove-buttons">
+                <button id="remove-all" class="button">Remove All</button>
+                <button id="remove-completed" class="button">Delete Completed</button>
+            </div>
         </div>
     </div>
-</div>
+    <script src="index.js"></script>
 </body>
-<script  src="index.js"></script>
 </html>

@@ -1,60 +1,118 @@
-*{
+* {
     margin: 0;
     padding: 0;
 }
+
 html {
     font-size: 100%;
-  }
+}
+
 html, body, .wrapper {
     height: 100%;
+    background: rgb(0,36,34);
+    background: linear-gradient(15deg, rgba(0,36,34,1) 0%, rgba(79,79,208,1) 49%, rgba(0,212,255,1) 100%);
 }
-.wrapper{
+
+.wrapper {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.todo-window{
-    border: 1px solid black;
+.todo-window {
     padding: 10px;
     border-radius: 10px;
+    background-color: #EEF7FF;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
 }
 
-input{
+input {
     height: 2em;
     width: 15em;
     border-radius: 9px;
     margin-bottom: 0.5em;
 }
 
-.add-section > button{
+.add-section > button, .remove-buttons > button {
     height: 2em;
-    width: 5em;
+    width: auto;
     border-radius: 8px;
+    padding: 5px 10px;
+    border: none;
+    background-color: #28a745;
 }
 
- .add-section > button:hover{
+.add-section > button:hover, .remove-buttons > button:hover {
     cursor: pointer;
-    background-color: aliceblue;
+    background-color: #218838;
 }
 
-li{
+.list-section {
+    width: 100%;
+}
+
+.list-section ul {
+    padding: 0;
+    margin: 0;
+    width: 100%; 
+}
+
+li {
     list-style: none;
     display: flex;
     justify-content: space-between;
-    text-align: left;
-    padding-left: 5px;
-    border-bottom: 1px black solid;
+    align-items: center;
+    margin: 5px 0;
+    background-color: #EEF7FF;
+    border-radius: 5px;
+    padding: 5px;
+    width: auto; 
 }
-li > button > img{
+
+li > button > img {
     height: 100%;
 }
-li > button{
+
+li > button {
     height: 2em;
     border: none;
-    background-color: white;
-    align-items: right;
+    background-color: transparent;
 }
-li > button:hover{
+
+li > button:hover {
     cursor: pointer;
+}
+
+.task-checkbox {
+    height: 1em;
+    width: 1em;
+    transform: scale(1.5);
+    margin-right: 10px;
+    accent-color: #28a745;
+    vertical-align: middle;
+}
+
+.task-text {
+    flex: 1;
+    text-align: left;
+    word-wrap: break-word;
+    max-width: 250px;
+    margin-left: 10px;
+}
+
+#delete-button:hover {
+    cursor: pointer;
+    background-color: #ED0800;
+    border-radius: 5px;
+    transform: scale(1.1);
+}
+
+.remove-buttons {
+    display: flex;
+    justify-content: center;
+    width: 100%; 
+    gap: 10px;
+    margin-top: 10px; 
 }

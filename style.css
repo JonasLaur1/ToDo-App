@@ -116,3 +116,7 @@ li > button:hover {
     gap: 10px;
     margin-top: 10px; 
 }
+
+.completed-task {
+    text-decoration: line-through;
+}

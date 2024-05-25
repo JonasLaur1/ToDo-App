@@ -22,29 +22,34 @@ function addTask(text = null, checked = false) {
         text = document.getElementById("task-text").value;
     }
 
-    var error = document.getElementById("error");
-    if (text === "") {
+    const error = document.getElementById("error");
+    if (text.trim() === "") {
         error.textContent = "Please write your task";
         error.style.color = "red";
         return;
     }
 
-    error.innerHTML = "";
-    var ul = document.getElementById("list");
-    var li = document.createElement("li");
+    error.textContent = "";
+    const ul = document.getElementById("list");
+    const li = document.createElement("li");
     li.classList.add("task-item");
 
-    var taskCheckbox = document.createElement("input");
+    const taskCheckbox = document.createElement("input");
     taskCheckbox.classList.add("task-checkbox");
     taskCheckbox.setAttribute("type", "checkbox");
     taskCheckbox.checked = checked;
 
-    var taskText = document.createElement("span");
+    const taskText = document.createElement("span");
     taskText.classList.add("task-text");
     taskText.textContent = text;
 
-    var deleteButton = document.createElement("button");
-    deleteButton.setAttribute("id", "delete-button");
+    if (checked) {
+        li.classList.add('completed-task');
+        taskText.classList.add('completed-task');
+    }
+
+    const deleteButton = document.createElement("button");
+    deleteButton.classList.add("delete-button");
     deleteButton.innerHTML = '<img src="trashcan.png" alt="Delete" />';
 
     li.appendChild(taskCheckbox);
@@ -59,6 +64,7 @@ function addTask(text = null, checked = false) {
 
     taskCheckbox.addEventListener('change', function(event) {
         li.classList.toggle('completed-task', taskCheckbox.checked);
+        taskText.classList.toggle('completed-task', taskCheckbox.checked);
         saveTasks();
     });
 
@@ -67,16 +73,16 @@ function addTask(text = null, checked = false) {
 }
 
 function removeAllTasks() {
-    var list = document.getElementById("list");
+    const list = document.getElementById("list");
     list.innerHTML = "";
     saveTasks();
 }
 
 function removeCompletedTasks() {
-    var tasks = Array.from(document.getElementsByClassName("task-checkbox"));
+    const tasks = Array.from(document.getElementsByClassName("task-checkbox"));
     tasks.forEach(task => {
         if (task.checked) {
-            var li = task.closest("li");
+            const li = task.closest("li");
             if (li) {
                 li.remove();
             }
@@ -85,17 +91,14 @@ function removeCompletedTasks() {
     saveTasks();
 }
 
-var addButton = document.getElementById("add-task");
-addButton.onclick = function() {
+document.getElementById("add-task").onclick = function() {
     addTask();
 }
 
-var removeAllButton = document.getElementById("remove-all");
-removeAllButton.onclick = function() {
+document.getElementById("remove-all").onclick = function() {
     removeAllTasks();
 }
 
-var removeCompletedButton = document.getElementById("remove-completed");
-removeCompletedButton.onclick = function() {
+document.getElementById("remove-completed").onclick = function() {
     removeCompletedTasks();
 }
